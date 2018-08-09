@@ -1,0 +1,11 @@
+<h3>Person List</h3>
+<div *ngFor="let person of persons | async" [ngClass]="'sub-child-menu'">
+  <p>
+    {{person.personId}}. {{person.name}}, {{person.city}}
+    <a [routerLink]="['view', person.personId]" routerLinkActive="active">View</a> ||
+    <button type="button" (click)="goToEdit(person)">Edit</button>
+  </p>
+</div>
+<div [ngClass]="'sub-child-container'">
+  <router-outlet></router-outlet>
+</div>
